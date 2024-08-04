@@ -1,3 +1,5 @@
+import { ItemManager } from './item-manager';
+
 export class Item {
   name: string;
   sellIn: number;
@@ -12,10 +14,14 @@ export class Item {
 
 export class GildedRose {
   items: Array<Item>;
+  itemManager: ItemManager;
 
-  constructor(items = [] as Array<Item>) {
+  constructor(items = [] as Array<Item>, itemManager: ItemManager) {
     this.items = items;
+    this.itemManager = itemManager;
   }
 
-
+  dayGoneBy() {
+    this.itemManager.manageItems(this.items);
+  }
 }

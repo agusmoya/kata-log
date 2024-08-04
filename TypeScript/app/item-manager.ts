@@ -44,9 +44,9 @@ export class ItemManager {
             items[i].quality -= 1
           }
 
-          if ( this.itemIsConjured(items[i]) ) {
-            items[i].quality -= 2
-          }
+          // if ( this.itemIsConjured(items[i]) ) {
+          //   items[i].quality -= 2
+          // }
         }
 
       // si se anieja

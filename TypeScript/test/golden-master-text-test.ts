@@ -1,4 +1,5 @@
 import { Item, GildedRose } from '../app/gilded-rose';
+import { ItemManager } from '../app/item-manager';
 
 console.log("OMGHAI!")
 
@@ -14,8 +15,8 @@ const items = [
   // this conjured item does not work properly yet
   new Item("Conjured Mana Cake", 3, 6)];
 
-
-const gildedRose = new GildedRose(items);
+const itemManager = new ItemManager();
+const gildedRose = new GildedRose(items, itemManager);
 
 let days: number = 2;
 if (process.argv.length > 2) {
@@ -30,5 +31,5 @@ for (let i = 0; i < days + 1; i++) {
 
   });
   console.log();
-  gildedRose.updateQuality();
+  gildedRose.dayGoneBy();
 }

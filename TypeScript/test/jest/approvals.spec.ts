@@ -1,4 +1,5 @@
 import { Item, GildedRose } from '@/gilded-rose';
+import { ItemManager } from '@/item-manager';
 
 /**
  * This unit test uses [Jest Snapshot](https://goo.gl/fbAQLP).
@@ -38,8 +39,9 @@ describe('Gilded Rose Approval', () => {
   });
 
   it('should foo', () => {
-    const gildedRose = new GildedRose([new Item('foo', 0, 0)]);
-    const items = gildedRose.updateQuality();
+    const itemManager = new ItemManager();
+    const gildedRose = new GildedRose([new Item('foo', 0, 0)], itemManager);
+    const items = gildedRose.dayGoneBy();
 
     expect(items).toMatchSnapshot();
   });
